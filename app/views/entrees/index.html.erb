@@ -1,2 +1,35 @@
-<h1>Entree#index</h1>
-<p>Find me in app/views/entree/index.html.erb</p>
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
+    <h1>Entrees</h1>
+    <table>
+      <thead>
+        <tr>
+          <th width="30%">Name</th>
+          <th width="30%">Email</th>
+          <th width="30%">Phone</th>
+          <th>Views</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @entrants.each do |e| %>
+          <tr>
+            <td><%= e.first_name %> <%= e.last_name %></td>
+            <td><%= e.email %></td>
+            <td><%= e.phone  %></td>
+            <td><%= link_to '<i class="fa fa-trash-o"></i> Delete'.html_safe, e, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% if @entrants.size == 0 %>
+      <center>
+        <h3>There are currently no entrants.<br> Please check back later.</h3>
+      </center>
+    <% end %>
+    <center>
+      <%= will_paginate @entrants %>
+    </center>
+  </div>
+</div>
+</div>

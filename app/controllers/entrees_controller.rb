@@ -1,6 +1,6 @@
 class EntreesController < ApplicationController
   def index
-    @entrants = Entree.all
+    @entrants = Entree.all.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new
@@ -8,12 +8,19 @@ class EntreesController < ApplicationController
   end
 
   def create
-    @entrant = Entree.new(entree_params)
-    if @entrannt.save
-      redirect_to root
+    puts params
+    @entrant = Entree.create(entree_params)
+    if @entrant.save
+      redirect_to "/"
     else
       respond_with @entrant
     end
+  end
+
+  def destroy
+    @entrant = Entree.find(params[:id])
+    @entrant.destroy
+    redirect_to :back
   end
 
   private
