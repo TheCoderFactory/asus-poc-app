@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   get 'entree/new'
 
-  get 'entree/create'
+  post 'entree/create'
 
   get 'entree/index'
+  resources :entrees
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
