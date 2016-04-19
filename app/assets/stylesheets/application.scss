@@ -12,3 +12,24 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+html {
+  width: 1250px;
+}
+
+body {
+  background-color: #f9f9f9;
+}
+
+.title {
+  margin-bottom: 30px;
+  font-size: 60px;
+}
+
+.supporter {
+  margin-top: 40px;
+}
+
+#reset-btn {
+  margin-top: 10px;
+}
