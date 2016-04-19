@@ -1,1 +1,24 @@
-this is where the game will be
+<div class="container">
+<div class="row">
+  <center><h1>ASUS Game</h1></center>
+  <div class="col-xs-6">
+    <p>Use the instructions to move the ball to the star. X is the number of boxes to move.</p>
+    <ul>
+      <li>moveRight(x)</li>
+      <li>moveLeft(x)</li>
+      <li>moveUp(x)</li>
+      <li>moveDown(x)</li>
+    </ul>
+    <textarea rows="10" cols="70"></textarea>
+  </div>
+  <div class="col-xs-6">
+    <%= image_tag "ASUS_Grid.png", id: :grid %>
+    <%= image_tag "Bottom_Grid.png", id: :bottom_barrier %>
+    <%= image_tag "Middle_Grid.png", id: :middle_barrier %>
+    <%= image_tag "Top_Grid.png", id: :top_barrier %>
+    <%= image_tag "Right_Grid.png", id: :right_barrier %>
+    <%= image_tag "ball.png", id: :ball %>
+    <%= image_tag "star.png", id: :star %>
+  </div>
+</div>
+</div>
