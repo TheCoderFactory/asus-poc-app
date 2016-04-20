@@ -16,20 +16,22 @@
         </ul>
       </div>
       <textarea id="attempt-box" rows="4" cols="70" class="form-control" placeholder="e.g. moveLeft(4), moveDown(8)"></textarea>
+      <br>
+      <button class="bnt btn-success lead btn-block" id="run-btn">Run</button>
       <button class="bnt btn-warning lead btn-block" id="reset-btn">Reset</button>
       <h2 class="supporter">Supported by ASUS.</h2>
       <%= image_tag "asus_logo.png", class: "text-center" %>
     </div>
     <div class="col-xs-6">
+    </div>
+  </div>
+</div>
       <%= image_tag "ASUS_Grid.png", id: :grid %>
       <%= image_tag "Bottom_Grid.png", id: :bottom_barrier %>
       <%= image_tag "Middle_Grid.png", id: :middle_barrier %>
       <%= image_tag "Top_Grid.png", id: :top_barrier %>
       <%= image_tag "Right_Grid.png", id: :right_barrier %>
-      <%= image_tag "ball.png", id: :ball %>
       <%= image_tag "star.png", id: :star %>
-    </div>
-  </div>
-</div>
+      <%= image_tag "ball.png", id: :ball %>
 
 <%= render 'game/modal' %>
