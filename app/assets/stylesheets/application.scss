@@ -13,9 +13,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-html {
-  width: 1250px;
-}
+/* html { */
+  /* width: 1250px; */
+/* } */
 
 body {
   background-color: #f9f9f9;
@@ -36,4 +36,9 @@ body {
 
 img {
   position: absolute;
+}
+
+#grid {
+  padding-bottom: 40px;
+  padding-right: 40px;
 }
