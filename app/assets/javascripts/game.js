@@ -1,53 +1,44 @@
-var attempt, instr_no, ball;
+var attempt, instr_no;
+var grid, bottomBarrier, middleBarrier, topBarrier, rightBarrier, ball, star;
+var gridPosition;
 $(document).on("page:change", function() {
-  var grid = $('#grid');
-  var bottomBarrier = $('#bottom_barrier');
-  var middleBarrier = $('#middle_barrier');
-  var topBarrier = $('#top_barrier');
-  var rightBarrier = $('#right_barrier');
+  console.log(screen.width);
+  $('#reset-btn').hide();
+  $('#run-btn').show();
+  grid = $('#grid');
+  bottomBarrier = $('#bottom_barrier');
+  middleBarrier = $('#middle_barrier');
+  topBarrier = $('#top_barrier');
+  rightBarrier = $('#right_barrier');
   ball = $('#ball');
-  var star = $('#star');
-  var gridPosition = grid.offset();
+  star = $('#star');
   var ballPosition = ball.offset();
-  console.log(ballPosition.top);
-  bottomBarrier.offset({ top: gridPosition.top + 400});
+  grid.offset({ top: 150, left: screen.width/2 });
+  gridPosition = grid.offset();
+  bottomBarrier.offset({ top: gridPosition.top + 400, left: gridPosition.left });
   middleBarrier.offset({ top: gridPosition.top + 200, left: gridPosition.left + 100 });
   topBarrier.offset({ top: gridPosition.top + 100, left: gridPosition.left + 100 });
-  rightBarrier.offset({ left: gridPosition.left + 400 });
-  ball.offset({ top: gridPosition.top + 500 });
+  rightBarrier.offset({ top: gridPosition.top, left: gridPosition.left + 400 });
+  ball.offset({ top: gridPosition.top + 500 , left: gridPosition.left });
   star.offset({ top: gridPosition.top + 100, left: gridPosition.left + 300 });
   var ballPosition = ball.offset();
-  console.log(ballPosition.top);
 
   var response = "";
   var answer = "moveRight(5), moveUp(2), moveLeft(5), moveUp(3), moveRight(3), moveDown(1)"
 
-  // Check if answer is correct
-  // $('#attempt-box').keyup(function(event) {
-      // if($('#attempt-box').val() == answer) {
-        // console.log("Working! and correct");
-        // $("#attempt-box").attr("disabled", true);
-        // // Launch modal
-        // $('#myModal').modal('show')
-      // }
-      // response = $('#attempt-box').val();
-  // });
   $('#run-btn').click(function() {
+    $('#reset-btn').show();
+    $('#run-btn').hide();
     console.log("Run btn clicked");
     attempt = $('#attempt-box').val();
     attempt = attempt.split(",");
     instr_no = 0;
     move();
-    // for (i = 0; i < attempt.length; i++) {
-    // }
   });
 
-  // Reset the input box
   $('#reset-btn').click(function() {
     console.log("Reset btn clicked");
-    response = "";
-    $("#attempt-box").attr("disabled", false);
-    $('#attempt-box').val("");
+    reset();
   });
 });
 
@@ -87,6 +78,15 @@ function move() {
       // incorrect text, reset
         console.log("here");
   }
-  console.log(instruction);
+  console.log(ball.offset());
+  console.log(star.offset());
   var tm = setTimeout('move()', 1500);
+}
+
+function reset() {
+  // Reset the input box
+  ball.offset({ top: gridPosition.top + 500 , left: gridPosition.left });
+  $('#attempt-box').val("");
+  $('#reset-btn').hide();
+  $('#run-btn').show();
 }
