@@ -43,6 +43,20 @@ $(document).on("page:change", function() {
   });
 });
 
+function runScript(e) {
+  if (e.keyCode == 13) {
+    console.log("enter key pressed");
+    $('#reset-btn').show();
+    attempt = $('#attempt-box').val();
+    attempt = attempt.split(",");
+    instr_no = 0;
+    move();
+    $('#attempt-box').val("");
+    $('#attempt-box').focus();
+    return true;
+  }
+}
+
 function move() {
   if (instr_no == attempt.length) return;
   var currentPosition = ball.offset();
@@ -50,9 +64,10 @@ function move() {
   instruction = instruction.split("(");
   instruction[0] = instruction[0].trim();
   instruction[1] = parseInt(instruction[1].split(")"));
+  var length = 0;
   switch (instruction[0]) {
     case "moveLeft":
-      if (noCollision(instruction) == 0) {
+      if ((length = noCollision(instruction)) == 0) {
         ball.animate({ left: currentPosition.left-(instruction[1]*100) }, 500, function () {
           ball.offset({ left: currentPosition.left-(instruction[1]*100) });
           ballOffset = ball.offset();
@@ -64,7 +79,6 @@ function move() {
           } else tm = setTimeout('move()', 1500);
         });
       } else {
-        var length = noCollision(instruction);
         ball.animate({ left: currentPosition.left-(length*100) }, 500, function() {
           ball.offset({ left: currentPosition.left-(length*100) });
           ballOffset = ball.offset();
@@ -78,7 +92,7 @@ function move() {
       }
       break;
     case "moveRight":
-      if (noCollision(instruction) == 0) {
+      if ((length = noCollision(instruction)) == 0) {
         ball.animate({ left: currentPosition.left+(instruction[1]*100) }, 500, function () {
           ball.offset({ left: currentPosition.left+(instruction[1]*100) });
           ballOffset = ball.offset();
@@ -90,7 +104,6 @@ function move() {
           } else tm = setTimeout('move()', 1500);
         });
       } else {
-        var length = noCollision(instruction);
         ball.animate({ left: currentPosition.left+(length*100) }, 500, function() {
           ball.offset({ left: currentPosition.left+(length*100) });
           ballOffset = ball.offset();
@@ -104,7 +117,7 @@ function move() {
       }
       break;
     case "moveUp":
-      if (noCollision(instruction) == 0) {
+      if ((length = noCollision(instruction)) == 0) {
         ball.animate({ top: currentPosition.top-(instruction[1]*100) }, 500, function () {
           ball.offset({ top: currentPosition.top-(instruction[1]*100) });
           ballOffset = ball.offset();
@@ -116,7 +129,6 @@ function move() {
           } else tm = setTimeout('move()', 1500);
         });
       } else {
-        var length = noCollision(instruction);
         ball.animate({ top: currentPosition.top-(length*100) }, 500, function() {
           ball.offset({ top: currentPosition.top-(length*100) });
           ballOffset = ball.offset();
@@ -130,7 +142,7 @@ function move() {
       }
       break;
     case "moveDown":
-      if (noCollision(instruction) == 0) {
+      if ((length = noCollision(instruction)) == 0) {
         ball.animate({ top: currentPosition.top+(instruction[1]*100) }, 500, function () {
           ball.offset({ top: currentPosition.top+(instruction[1]*100) });
           ballOffset = ball.offset();
@@ -142,7 +154,6 @@ function move() {
           } else tm = setTimeout('move()', 1500);
         });
       } else {
-        var length = noCollision(instruction);
         ball.animate({ top: currentPosition.top+(length*100) }, 500, function() {
           ball.offset({ top: currentPosition.top+(length*100) });
           ballOffset = ball.offset();
