@@ -1,4 +1,6 @@
 class EntreesController < ApplicationController
+  respond_to :html
+
   def index
     @entrants = Entree.all.paginate(:page => params[:page], :per_page => 10)
   end
@@ -13,7 +15,7 @@ class EntreesController < ApplicationController
     if @entrant.save
       redirect_to "/"
     else
-      respond_with @entrant
+      respond_with(@entrant)
     end
   end
 
