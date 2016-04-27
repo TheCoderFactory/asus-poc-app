@@ -2,7 +2,7 @@ var attempt, instr_no, tm;
 var grid, bottomBarrier, middleBarrier, topBarrier, rightBarrier, ball, star;
 var gridPosition, ballOffset, starOffset, topBarrierPosition, middleBarrierPosition, bottomBarrierPosition, rightBarrierPosition;
 $(document).on("page:change", function() {
-  console.log(screen.width);
+  $('#reset-btn').hide();
   $('#run-btn').show();
   grid = $('#grid');
   bottomBarrier = $('#bottom_barrier');
@@ -24,28 +24,22 @@ $(document).on("page:change", function() {
   ball.offset({ top: gridPosition.top + 500 , left: gridPosition.left });
   star.offset({ top: gridPosition.top + 100, left: gridPosition.left + 300 });
 
-  var response = "";
-  var answer = "moveRight(5), moveUp(2), moveLeft(5), moveUp(3), moveRight(3), moveDown(1)";
-
   $('#run-btn').click(function() {
     $('#reset-btn').show();
-    console.log("Run btn clicked");
     attempt = $('#attempt-box').val();
     attempt = attempt.split(",");
     instr_no = 0;
     move();
-  $('#attempt-box').val("");
-  $('#attempt-box').focus();
+    $('#attempt-box').val("");
+    $('#attempt-box').focus();
   });
 
   $('#reset-btn').click(function() {
-    console.log("Reset btn clicked");
     reset();
   });
   $('#modal-reset-btn').click(function() {
-    console.log("Reset btn clicked");
-    $('#myModal2').modal('hide')
-      reset();
+    $('#myModal2').modal('hide');
+    reset();
   });
 });
 
@@ -59,11 +53,8 @@ function move() {
   switch (instruction[0]) {
     case "moveLeft":
       if (noCollision(instruction) == 0) {
-        console.log("left");
         ball.animate({ left: currentPosition.left-(instruction[1]*100) }, 500, function () {
           ball.offset({ left: currentPosition.left-(instruction[1]*100) });
-          console.log(ball.offset());
-          console.log(star.offset());
           ballOffset = ball.offset();
           starOffset = star.offset();
           if (ballOffset.top == starOffset.top && ballOffset.left == starOffset.left) $('#myModal').modal('show');
@@ -88,11 +79,8 @@ function move() {
       break;
     case "moveRight":
       if (noCollision(instruction) == 0) {
-        console.log("right");
         ball.animate({ left: currentPosition.left+(instruction[1]*100) }, 500, function () {
           ball.offset({ left: currentPosition.left+(instruction[1]*100) });
-          console.log(ball.offset());
-          console.log(star.offset());
           ballOffset = ball.offset();
           starOffset = star.offset();
           if (ballOffset.top == starOffset.top && ballOffset.left == starOffset.left) $('#myModal').modal('show');
@@ -117,11 +105,8 @@ function move() {
       break;
     case "moveUp":
       if (noCollision(instruction) == 0) {
-        console.log("up");
         ball.animate({ top: currentPosition.top-(instruction[1]*100) }, 500, function () {
           ball.offset({ top: currentPosition.top-(instruction[1]*100) });
-          console.log(ball.offset());
-          console.log(star.offset());
           ballOffset = ball.offset();
           starOffset = star.offset();
           if (ballOffset.top == starOffset.top && ballOffset.left == starOffset.left) $('#myModal').modal('show');
@@ -146,11 +131,8 @@ function move() {
       break;
     case "moveDown":
       if (noCollision(instruction) == 0) {
-        console.log("down");
         ball.animate({ top: currentPosition.top+(instruction[1]*100) }, 500, function () {
           ball.offset({ top: currentPosition.top+(instruction[1]*100) });
-          console.log(ball.offset());
-          console.log(grid.offset());
           ballOffset = ball.offset();
           starOffset = star.offset();
           if (ballOffset.top == starOffset.top && ballOffset.left == starOffset.left) $('#myModal').modal('show');
@@ -177,7 +159,6 @@ function move() {
       // incorrect text, reset
       $('#myModal2').modal('show')
   }
-  // tm = setTimeout('move()', 1500);
 }
 
 function outOfBounds(itemOffset) {
@@ -217,10 +198,6 @@ function noCollision(instruction) {
     }
   }
   return 0;
-}
-
-function collisionDistance(instruction) {
-
 }
 
 function reset() {

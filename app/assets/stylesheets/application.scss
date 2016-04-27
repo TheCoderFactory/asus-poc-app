@@ -13,17 +13,24 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* html { */
-  /* width: 1250px; */
-/* } */
 
 body {
   background-color: #f9f9f9;
 }
 
+.win-header {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
 .title {
   margin-bottom: 30px;
   font-size: 60px;
+}
+
+.instr {
+  font-size: 15pt;
 }
 
 .supporter {
