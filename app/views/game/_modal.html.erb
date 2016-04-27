@@ -1,0 +1,14 @@
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <span><h4 class="modal-title text-center"><%= image_tag "star.png", class: "img-fluid win-header" %>   Winner!   <%= image_tag "star.png", class: "img-fluid win-header" %></h4></span>
+      </div>
+      <div class="modal-body">
+        <p class="text-center lead">Well done! Enter the draw to win prizes below.</p>
+        <%= render 'entrees/form' %>
+      </div>
+    </div>
+  </div>
+</div>

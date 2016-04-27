@@ -1,23 +1,22 @@
 <%= simple_form_for(@entrant) do |f| %>
   <div class="row">
-    <div class="form-group input-field col-md-2">
+    <div class="form-group input-field col-md-6">
       <%= f.input :first_name, label: "First Name", input_html: {class: "form-control"} %>
     </div>
-    <div class="form-group input-field col-md-2">
+    <div class="form-group input-field col-md-6">
       <%= f.input :last_name, label: "Last Name", input_html: {class: "form-control"} %>
     </div>
-    <div class="form-group input-field col-md-2">
+    <div class="form-group input-field col-md-12">
       <%= f.input :phone, label: "Phone", input_html: {class: "form-control"} %>
     </div>
-    <div class="form-group input-field col-md-2">
+    <div class="form-group input-field col-md-12">
       <%= f.input :email, label: "Email Address", input_html: {class: "form-control"} %>
     </div>
   </div>
 
-
   <div class="row">
     <div class="col-md-12">
-      <%= f.button :submit, "Register", class: "btn btn-primary" %>
+      <%= f.button :submit, "Register", class: "btn btn-success btn-block lead" %>
     </div>
   </div>
 <% end %>

@@ -12,3 +12,40 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+body {
+  background-color: #f9f9f9;
+}
+
+.win-header {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+.title {
+  margin-bottom: 30px;
+  font-size: 60px;
+}
+
+.instr {
+  font-size: 15pt;
+}
+
+.supporter {
+  margin-top: 40px;
+}
+
+#reset-btn {
+  margin-top: 10px;
+}
+
+img {
+  position: absolute;
+}
+
+#grid {
+  padding-bottom: 40px;
+  padding-right: 40px;
+}

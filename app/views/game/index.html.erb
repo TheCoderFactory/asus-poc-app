@@ -1,24 +1,48 @@
 <div class="container">
-<div class="row">
-  <center><h1>ASUS Game</h1></center>
-  <div class="col-xs-6">
-    <p>Use the instructions to move the ball to the star. X is the number of boxes to move.</p>
-    <ul>
-      <li>moveRight(x)</li>
-      <li>moveLeft(x)</li>
-      <li>moveUp(x)</li>
-      <li>moveDown(x)</li>
-    </ul>
-    <textarea rows="10" cols="70"></textarea>
-  </div>
-  <div class="col-xs-6">
-    <%= image_tag "ASUS_Grid.png", id: :grid %>
-    <%= image_tag "Bottom_Grid.png", id: :bottom_barrier %>
-    <%= image_tag "Middle_Grid.png", id: :middle_barrier %>
-    <%= image_tag "Top_Grid.png", id: :top_barrier %>
-    <%= image_tag "Right_Grid.png", id: :right_barrier %>
-    <%= image_tag "ball.png", id: :ball %>
-    <%= image_tag "star.png", id: :star %>
+  <div class="row">
+    <h1 class="text-center title">Coder Factory's <strong>Code to Win</strong></h1>
+    <div class="col-xs-6">
+      <div class="row">
+        <h1>How to play.</h1>
+        <ol class="instr">
+          <li>Use the instructions to move the ball to the star.</li>
+          <br>
+          <li>Replace the X with the number of boxes you want to move.</li>
+          <br>
+          <li>Each instruction must be separated by a comma (,).</li>
+          <br>
+        </ol>
+      </div>
+      <div class="row">
+        <h3>Instructions</h3>
+        <ul>
+          <div class="col-xs-6">
+            <li class="lead">moveRight(x)</li>
+            <li class="lead">moveLeft(x)</li>
+          </div>
+          <div class="col-xs-6">
+            <li class="lead">moveUp(x)</li>
+            <li class="lead">moveDown(x)</li>
+          </div>
+        </ul>
+      </div>
+      <textarea id="attempt-box" rows="4" cols="70" class="form-control" placeholder="e.g. moveLeft(4), moveDown(8)"></textarea>
+      <br>
+      <button class="bnt btn-success lead btn-block" id="run-btn">Run</button>
+      <button class="bnt btn-warning lead btn-block" id="reset-btn">Reset</button>
+      <h2 class="supporter">Supported by ASUS.</h2>
+      <%= image_tag "asus_logo.png", class: "text-center" %>
+    </div>
   </div>
 </div>
-</div>
+
+<%= image_tag "ASUS_Grid.png", id: :grid %>
+<%= image_tag "Bottom_Grid.png", id: :bottom_barrier %>
+<%= image_tag "Middle_Grid.png", id: :middle_barrier %>
+<%= image_tag "Top_Grid.png", id: :top_barrier %>
+<%= image_tag "Right_Grid.png", id: :right_barrier %>
+<%= image_tag "star.png", id: :star %>
+<%= image_tag "ball.png", id: :ball %>
+
+<%= render 'game/modal' %>
+<%= render 'game/modal2' %>
