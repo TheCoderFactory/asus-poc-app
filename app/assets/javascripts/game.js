@@ -41,6 +41,9 @@ $(document).on("page:change", function() {
     $('#myModal2').modal('hide');
     reset();
   });
+  $('#modal-restart-btn').click(function() {
+    $('#myModal2').modal('hide');
+  });
 });
 
 function runScript(e) {
