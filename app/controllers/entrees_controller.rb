@@ -27,6 +27,6 @@ class EntreesController < ApplicationController
 
   private
   def entree_params
-    params.require(:entree).permit(:first_name, :last_name, :email, :phone)
+    params.require(:entree).permit(:first_name, :last_name, :email, :phone, :school_or_business, :know_more)
   end
 end
