@@ -25,6 +25,7 @@ body {
 }
 
 .title {
+  display: inline;
   margin-bottom: 30px;
   font-size: 60px;
 }
@@ -52,5 +53,16 @@ img {
 
 #attempt-box {
   background-color: black;
-  color: green;
+  color: white;
+  letter-spacing: 2px;
+}
+.heading-image {
+  display: block;
+  margin-top: 10px;
+  margin-left: 25%;
+  width: 213px;
+  height: 45px;
+}
+.heading-row {
+  margin-top: 10px;
 }

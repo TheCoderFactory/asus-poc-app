@@ -1,20 +1,31 @@
 <div class="container">
+    <div class="row heading-row">
+      <div class="col-xs-4">
+        <%= image_tag "cfa_logo.png", class: "heading-image" %>
+      </div>
+      <div class="col-xs-4">
+        <center><h1 class="text-center title">Code to Win</h1></center>
+      </div>
+      <div class="col-xs-4">
+        <center><%= image_tag "asus_logo.png", class: "heading-image" %></center>
+      </div>
+    </div>
   <div class="row">
-    <h1 class="text-center title">Coder Factory's <strong>Code to Win</strong></h1>
+    <br>
     <div class="col-xs-6">
       <div class="row">
-        <h1>How to play.</h1>
+        <h1>How to Play</h1>
         <ol class="instr">
-          <li>Use the instructions to move the ball to the star.</li>
+          <li>Enter the correct code to move the ball to the star (from the code options below). </li>
           <br>
-          <li>Replace the X with the number of boxes you want to move.</li>
+          <li>Replace the (x) with the number of boxes you want to move - moveRight(3) will move the ball right 3 spaces.</li>
           <br>
-          <li>Each instruction must be separated by a comma (,).</li>
+          <li>Seperate each piece of code with a comma (you will need 6 pieces of code seperated by commas to be successful).</li>
           <br>
         </ol>
       </div>
       <div class="row">
-        <h3>Instructions</h3>
+        <h3>Code Options</h3>
         <ul>
           <div class="col-xs-6">
             <li class="lead">moveRight(x)</li>
@@ -30,8 +41,6 @@
       <br>
       <button class="bnt btn-success lead btn-block" id="run-btn">Run</button>
       <button class="bnt btn-warning lead btn-block" id="reset-btn">Reset</button>
-      <h2 class="supporter">Supported by ASUS.</h2>
-      <%= image_tag "asus_logo.png", class: "text-center" %>
     </div>
   </div>
 </div>
