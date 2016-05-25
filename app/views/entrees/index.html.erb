@@ -8,6 +8,7 @@
           <th width="15%">Name</th>
           <th width="25%">Email</th>
           <th width="15%">Phone</th>
+          <th width="15%">City</th>
           <th width="25%">School Or Business</th>
           <th width="15%">More info?</th>
           <th>Views</th>
@@ -19,8 +20,9 @@
             <td><%= e.first_name %> <%= e.last_name %></td>
             <td><%= e.email %></td>
             <td><%= e.phone  %></td>
+            <td><%= e.city %></td>
             <td><%= e.school_or_business %></td>
-            <td><%= e.know_more %>
+            <td><%= e.know_more %></td>
             <td><%= link_to '<i class="fa fa-trash-o"></i> Delete'.html_safe, e, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>

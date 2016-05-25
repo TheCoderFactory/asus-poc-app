@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516062225) do
+ActiveRecord::Schema.define(version: 20160525025131) do
 
   create_table "entrees", force: :cascade do |t|
     t.string   "first_name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160516062225) do
     t.datetime "updated_at",                        null: false
     t.string   "school_or_business"
     t.boolean  "know_more",          default: true
+    t.string   "city"
   end
 
 end
