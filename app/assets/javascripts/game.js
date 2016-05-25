@@ -220,3 +220,11 @@ function reset() {
   $('#reset-btn').hide();
   $('#run-btn').show();
 }
+
+function openTC() {
+  $('#tc_modal').modal('show');
+}
+
+function closeModal() {
+  $('#tc_modal').modal('hide');
+}
