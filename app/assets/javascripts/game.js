@@ -120,6 +120,7 @@ function move() {
       break;
     case "moveup":
       if ((length = noCollision(instruction)) == 0) {
+        console.log("bad");
         ball.animate({ top: currentPosition.top-(instruction[1]*100) }, 500, function () {
           ball.offset({ top: currentPosition.top-(instruction[1]*100) });
           ballOffset = ball.offset();
@@ -131,6 +132,8 @@ function move() {
           } else tm = setTimeout('move()', 1500);
         });
       } else {
+        console.log("good");
+        length = noCollision(instruction);
         ball.animate({ top: currentPosition.top-(length*100) }, 500, function() {
           ball.offset({ top: currentPosition.top-(length*100) });
           ballOffset = ball.offset();
@@ -191,19 +194,19 @@ function noCollision(instruction) {
   var startOffset = ball.offset();
   for (var i = 0; i < instruction[1]; i++) {
     switch (instruction[0]) {
-      case "moveLeft":
+      case "moveleft":
         startOffset.left-=100;
         if (wallCollision(startOffset) || outOfBounds(startOffset)) return i+1;
         break;
-      case "moveRight":
+      case "moveright":
         startOffset.left+=100;
         if (wallCollision(startOffset) || outOfBounds(startOffset)) return i+1;
         break;
-      case "moveUp":
+      case "moveup":
         startOffset.top-=100;
         if (wallCollision(startOffset) || outOfBounds(startOffset)) return i+1;
         break;
-      case "moveDown":
+      case "movedown":
         startOffset.top+=100;
         if (wallCollision(startOffset) || outOfBounds(startOffset)) return i+1;
         break;
