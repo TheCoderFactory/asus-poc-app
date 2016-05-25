@@ -5,9 +5,11 @@
     <table>
       <thead>
         <tr>
-          <th width="30%">Name</th>
-          <th width="30%">Email</th>
-          <th width="30%">Phone</th>
+          <th width="15%">Name</th>
+          <th width="25%">Email</th>
+          <th width="15%">Phone</th>
+          <th width="25%">School Or Business</th>
+          <th width="15%">More info?</th>
           <th>Views</th>
         </tr>
       </thead>
@@ -17,6 +19,8 @@
             <td><%= e.first_name %> <%= e.last_name %></td>
             <td><%= e.email %></td>
             <td><%= e.phone  %></td>
+            <td><%= e.school_or_business %></td>
+            <td><%= e.know_more %>
             <td><%= link_to '<i class="fa fa-trash-o"></i> Delete'.html_safe, e, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
