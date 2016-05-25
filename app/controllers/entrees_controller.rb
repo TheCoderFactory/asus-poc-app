@@ -3,6 +3,11 @@ class EntreesController < ApplicationController
 
   def index
     @entrants = Entree.all.paginate(:page => params[:page], :per_page => 10)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @entrants.to_csv, filename: "entrants-#{Date.today}.csv" }
+    end
   end
 
   def new
