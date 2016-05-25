@@ -1,7 +1,7 @@
 require 'csv'
 class Entree < ActiveRecord::Base
   EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-  validates :first_name, :last_name, :phone, :school_or_business, presence: true
+  validates :first_name, :last_name, :phone, :school_or_business, :city, presence: true
   validates :email, presence: true, :format => EMAIL_REGEX
 
   def self.to_csv(options = {})
