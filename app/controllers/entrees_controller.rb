@@ -1,5 +1,6 @@
 class EntreesController < ApplicationController
   respond_to :html
+  before_action :authenticate_user!, only: ["index"]
 
   def index
     @entrants = Entree.all.paginate(:page => params[:page], :per_page => 10)
