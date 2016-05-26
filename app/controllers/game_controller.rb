@@ -1,5 +1,5 @@
 class GameController < ApplicationController
   def index
-    @entrant = Entree.new
+    @entrant = Entry.new
   end
 end

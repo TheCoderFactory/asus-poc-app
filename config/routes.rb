@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users, skip: ["registration", "password"]
-  resources :entrees
+  resources :entries
   root "game#index"
 end
